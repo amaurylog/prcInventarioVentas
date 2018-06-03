@@ -1,0 +1,5 @@
+1. Se usa git pull --rebase
+2. Se utiliza git push
+3. Se utiliza git add .
+4. Se usa git commit -m "Descripción del Commit"
+5. Se usa git push -u origin master
