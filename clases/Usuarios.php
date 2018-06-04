@@ -14,4 +14,38 @@
 
             return mysqli_query($conexion, $sql);
         }
+
+        public function iniciarSesion($datos)
+        {
+            $c = new Conexion();
+            $conexion = $c->Conectar();
+
+            $_SESSION["usuario"] = $datos[0];
+            $_SESSION["idusuario"] = self::traeID($datos);
+
+            $pass = sha1($datos[1]);
+
+            $sql = "SELECT * FROM usuarios WHERE email = '$datos[0]' AND password = '$pass'";
+
+            $result = mysqli_query($conexion, $sql);
+
+            if (mysqli_num_rows($result) > 0)
+                return 1;
+            else
+                return 0;
+        }
+
+        public function traeID($datos)
+        {
+            $c = new Conexion();
+            $conexion = $c->Conectar();
+
+            $pass = sha1($datos[1]);
+
+            $sql = "SELECT * FROM usuarios WHERE email = '$datos[0]' AND password = '$pass'";
+
+            $result = mysqli_query($conexion, $sql);
+
+            return mysqli_num_row($result)[0];
+        }
     }

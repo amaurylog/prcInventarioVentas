@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <script src="librerias/jquery-3.3.1.js"></script>
+    <script src="js/funciones.js"></script>
 </head>
 <body>
     <div class="container">
@@ -53,3 +54,31 @@
     </div>
 </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+        $("#login").click(function(){
+
+            vacios = validarFormVacio("#frmLogin");
+
+            if (vacios > 0)
+            {
+                alert("Debes llenar todos los campos");
+                return false;
+            }
+
+            datos = $("#frmLogin").serialize();
+            $.ajax({
+                type: "POST",
+                data: datos,
+                url: "procesos/regLogin/login.php",
+                success: function(r) {
+                    if (r == 1)
+                        window.location = "vistas/inicio.php";
+                    else  
+                        alert("Credenciales Incorrectas, verifica de nuevo");
+                }
+            });
+        });
+    });
+</script>
