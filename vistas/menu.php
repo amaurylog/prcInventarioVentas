@@ -20,7 +20,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="categorias.php"><i class="fas fa-tags"></i> Categorías</a>
-                    <a class="dropdown-item" href="#"><i class="fas fa-box"></i> Artículos</a>
+                    <a class="dropdown-item" href="articulos.php"><i class="fas fa-box"></i> Artículos</a>
                 </div>
             </li>
             <li class="nav-item">
