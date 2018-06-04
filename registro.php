@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <script src="librerias/jquery-3.3.1.js"></script>
+    <script src="js/funciones.js"></script>
 </head>
 <body>
     <div class="container">
@@ -27,7 +28,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" id="" name="" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+                                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                             <div class="form-group mt-4">
@@ -35,7 +36,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon2"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon2">
+                                    <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon2">
                                 </div>
                             </div>
                             <div class="form-group mt-4">
@@ -43,7 +44,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-at"></i></span>
                                     </div>
-                                    <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Usuario / Email" aria-label="Usuario / Email" aria-describedby="basic-addon1">
+                                    <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario / Email" aria-label="Usuario / Email" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                             <div class="form-group mt-4">
@@ -68,3 +69,31 @@
     </div>
 </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+        $("#registrar").click(function(){
+
+            vacios = validarFormVacio("#frmRegistro");
+
+            if (vacios > 0)
+            {
+                alert("Debes llenar todos los campos");
+                return false;
+            }
+
+            datos = $("#frmRegistro").serialize();
+            $.ajax({
+                type: "POST",
+                data: datos,
+                url: "procesos/regLogin/registrarUsuario.php",
+                success: function(r) {
+                    if (r == 1)
+                        alert("Usuario Registrado Correctamente");
+                    else
+                        alert("Se encontro un error al registrar.");
+                }
+            });
+        });
+    });
+</script>
