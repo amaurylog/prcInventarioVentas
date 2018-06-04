@@ -42,10 +42,10 @@
 
             $pass = sha1($datos[1]);
 
-            $sql = "SELECT * FROM usuarios WHERE email = '$datos[0]' AND password = '$pass'";
+            $sql = "SELECT id_usuario FROM usuarios WHERE email = '$datos[0]' AND password = '$pass'";
 
             $result = mysqli_query($conexion, $sql);
 
-            return mysqli_num_row($result)[0];
+            return mysqli_fetch_row($result)[0];
         }
     }

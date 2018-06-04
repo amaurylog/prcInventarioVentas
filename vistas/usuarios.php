@@ -1,6 +1,5 @@
 <?php
     session_start();
-    
     if (isset($_SESSION["usuario"]))
     {
 ?>
@@ -10,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sistema de Inventario y Ventas</title>
+    <title>Usuarios</title>
     <?php require_once "menu.php"; ?>
 </head>
 <body>
