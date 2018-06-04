@@ -1,3 +1,16 @@
+<?php
+    require_once "clases/Conexion.php";
+    $obj = new Conexion();
+    $conexion = $obj->Conectar();
+
+    $sql = "SELECT * FROM usuarios WHERE email = 'admin'";
+    $result = mysqli_query($conexion, $sql);
+    $validar = 0;
+    if(mysqli_num_rows($result) > 0)
+    {
+        header("location: index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,3 +1,16 @@
+<?php
+    require_once "clases/Conexion.php";
+    $obj = new Conexion();
+    $conexion = $obj->Conectar();
+
+    $sql = "SELECT * FROM usuarios WHERE email = 'admin'";
+    $result = mysqli_query($conexion, $sql);
+    $validar = 0;
+    if(mysqli_num_rows($result) > 0)
+    {
+        $validar = 1;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +57,9 @@
                     <div class="card-footer text-white bg-dark">
                             <div class="row justify-content-end mr-3">
                                 <span class="btn btn-success btn-sm" id="login">Iniciar Sesión</span>
-                                <a href="registro.php" class="btn btn-danger btn-sm ml-2">Registrar</a>
+                                <?php if(!$validar):?>
+                                    <a href="registro.php" class="btn btn-danger btn-sm ml-2">Registrar</a>
+                                <?php endif; ?>
                             </div>
                         </form>
                     </div>

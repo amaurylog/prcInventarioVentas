@@ -18,5 +18,5 @@
 <?php
     }
     else
-        header("../index.php");
+        header("location:../index.php");
 ?>
