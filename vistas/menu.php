@@ -24,7 +24,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-users"></i> Administrador de Usuarios</a>
+                <a class="nav-link" href="usuarios.php"><i class="fas fa-users"></i> Administrador de Usuarios</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-user"></i> Clientes</a>
