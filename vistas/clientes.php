@@ -14,7 +14,7 @@
 </head>
 <body>
     
-    <div class="container">
+    <div class="container-fluid">
         <div class="row mt-5">
             <div class="col-md-4">
                 <form action="" id="frmClientes">
